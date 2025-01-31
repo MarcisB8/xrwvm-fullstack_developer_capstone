@@ -12,14 +12,18 @@ class CarMake(models.Model):
         ('PREMIUM', 'Premium'),
         ('LUXURY', 'Luxury')
     ]
-    brand_level = models.CharField(max_length=10, choices=BRAND_LEVEL, default='MEDIUM')
-    
+    brand_level = models.CharField(
+        max_length=10, 
+        choices=BRAND_LEVEL, 
+        default='MEDIUM'
+    )
+
     def __str__(self):
-        return self.name  # Return the name as the string representation
+        return self.name
 
 
 class CarModel(models.Model):
-    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)  # Many-to-One relationship
+    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     dealer_id = models.IntegerField(
         validators=[
             MaxValueValidator(100),
