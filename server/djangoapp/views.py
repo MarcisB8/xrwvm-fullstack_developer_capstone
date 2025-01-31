@@ -75,7 +75,7 @@ def registration(request):
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
         return JsonResponse(data)
-    else :
+    else:
         data = {"userName": username, "error": "Already Registered"}
         return JsonResponse(data)
 
@@ -92,13 +92,15 @@ def get_cars(request):
     cars = []
 
     for car_model in car_models:
-        cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
-    
+        cars.append({
+            "CarModel": car_model.name,
+            "CarMake": car_model.car_make.name
+        })
+
     print(f"Cars found: {cars}")
     return JsonResponse({"CarModels": cars})
 
 
-#Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
 def get_dealerships(request, state="All"):
     if (state == "All"):
         endpoint = "/fetchDealers"
@@ -135,11 +137,11 @@ def add_review(request):
     if (request.user.is_anonymous == False):
         data = json.loads(request.body)
         try:
-            # response = post_review(data)
+            response = post_review(data)
             return JsonResponse({"status": 200})
-        except:
+        except Exception as e:
             return JsonResponse({
-                "status": 401, "message": "Error in posting review"
+                "status": 401, "message": "Error {e} in posting review"
             })
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
