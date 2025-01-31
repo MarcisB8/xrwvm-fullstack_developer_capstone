@@ -25,10 +25,10 @@ class CarMake(models.Model):
 class CarModel(models.Model):
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     dealer_id = models.IntegerField(
-        validators=[
-            MaxValueValidator(100),
-            MinValueValidator(1)
-        ]
+            validators=[
+                MaxValueValidator(100),
+                MinValueValidator(1)
+            ]
     )
     name = models.CharField(max_length=100)
     CAR_TYPES = [
@@ -79,10 +79,10 @@ class CarModel(models.Model):
         default='SUV'
     )
     year = models.IntegerField(default=2023,
-        validators=[
-            MaxValueValidator(2023),
-            MinValueValidator(2015)
-        ]
+            validators=[
+                MaxValueValidator(2023),
+                MinValueValidator(2015)
+            ]
     )
     fuel = models.CharField(
         max_length=10,
@@ -90,10 +90,10 @@ class CarModel(models.Model):
         default='GASOLINE'
     )
     engine = models.FloatField(default=2.0,
-        validators=[
-            MaxValueValidator(10.0),
-            MinValueValidator(0.5)
-        ]
+            validators=[
+                MaxValueValidator(10.0),
+                MinValueValidator(0.5)
+            ]
     )
     color = models.CharField(
         max_length=10,
