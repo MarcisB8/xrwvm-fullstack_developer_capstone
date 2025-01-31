@@ -78,22 +78,24 @@ class CarModel(models.Model):
         choices=CAR_TYPES,
         default='SUV'
     )
-    year = models.IntegerField(default=2023,
-            validators=[
-                MaxValueValidator(2023),
-                MinValueValidator(2015)
-            ]
+    year = models.IntegerField(
+        default=2023,
+        validators=[
+            MaxValueValidator(2023),
+            MinValueValidator(2015)
+        ]
     )
     fuel = models.CharField(
         max_length=10,
         choices=CAR_FUEL,
         default='GASOLINE'
     )
-    engine = models.FloatField(default=2.0,
-            validators=[
-                MaxValueValidator(10.0),
-                MinValueValidator(0.5)
-            ]
+    engine = models.FloatField(
+        default=2.0,
+        validators=[
+            MaxValueValidator(10.0),
+            MinValueValidator(0.5)
+        ]
     )
     color = models.CharField(
         max_length=10,
