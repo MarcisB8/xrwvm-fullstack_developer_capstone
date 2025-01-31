@@ -5,27 +5,27 @@ def initiate():
 
     car_make_data = [
         {"name": "NISSAN",
-         "description": "Great cars. Japanese technology", 
+         "description": "Great cars. Japanese technology",
          "brand_level": "MEDIUM"},
         {"name": "Mercedes",
-         "description": "Great cars. German technology", 
+         "description": "Great cars. German technology",
          "brand_level": "PREMIUM"},
         {"name": "Audi",
-         "description": "Great cars. German technology", 
+         "description": "Great cars. German technology",
          "brand_level": "PREMIUM"},
         {"name": "Kia",
-         "description": "Great cars. Korean technology", 
+         "description": "Great cars. Korean technology",
          "brand_level": "MEDIUM"},
         {"name": "Toyota",
-         "description": "Great cars. Japanese technology", 
+         "description": "Great cars. Japanese technology",
          "brand_level": "MEDIUM"},
         {"name": "Bentley",
-         "description": "Exclusive cars. British style", 
+         "description": "Exclusive cars. British style",
          "brand_level": "LUXURY"},
     ]
 
     car_make_instances = []
-    for data in car_make_data: 
+    for data in car_make_data:
         car_make_instances.append(
             CarMake.objects.create(
                 name=data['name'],
